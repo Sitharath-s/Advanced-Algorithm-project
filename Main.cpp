@@ -1,18 +1,15 @@
+#include <iostream>
 #include "CheckIn.h"
 #include "CheckOut.h"
-#include "CheckAllTicket.h"
 #include "SearchTicket.h"
 #include "DeleteTicket.h"
-
-#include<iostream>
+#include "CheckAllTicket.h"
 using namespace std;
 
-/*
-Define function to use in our program
-*/
 
-int main(){
-    int options;
+int main() {
+    int choice;
+    
     cout << "**********************************" << endl;
     cout << "***** Welcome to Vista MAll ******" << endl;
     cout << "**********************************" << endl;
@@ -26,9 +23,32 @@ int main(){
     cout << "** - Delete Ticket (select 5)   **" << endl;
     cout << "** - Exit program (select 6)    **" << endl;
     cout << "**********************************" << endl;
-    cout << "Select: ";
-    cin >> options;
+    std::cout << "Enter your choice: ";
+    std::cin >> choice;
 
-
+    switch (choice) {
+        case 1:
+            checkIn();
+            break;
+        case 2:
+            checkOut();
+            break;
+        case 3:
+            searchTicket();
+            break;
+        case 4:
+            deleteTicket();
+            break;
+        case 5:
+            displayAllTickets();
+            break;
+        case 6:
+            std::cout << "Exiting program..." << std::endl;
+            return 0;
+        default:
+            std::cout << "Invalid choice! Please try again." << std::endl;
+    }
+    
     return 0;
 }
+
